@@ -52,3 +52,8 @@ button:hover {
   border: gray 1px solid;
   border-radius: 20px;
 }
+
+.noselectmsg {
+  font-size: 20px;
+  color: red;
+}

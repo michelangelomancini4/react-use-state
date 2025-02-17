@@ -37,7 +37,7 @@ const languages = [
 export default function LanguageSelector() {
 
     // destructuring
-    const [ChosenLanguage, setChosenLanguage] = useState(languages[0]);
+    const [ChosenLanguage, setChosenLanguage] = useState(null);
 
     return (
         <div >
@@ -60,8 +60,24 @@ export default function LanguageSelector() {
 
             {/* card con info */}
             <div className="card" >
-                <h2 >{ChosenLanguage.title}</h2>
-                <p >{ChosenLanguage.description}</p>
+
+                {/* controllo se il bottone è stato premuto e imposto due output diversi  */}
+                {ChosenLanguage ?
+
+                    // output da visualizzare nel caso in cui sia stato schiacciato un bottone
+                    <>
+                        <h2 >{ChosenLanguage.title}</h2>
+                        <p >{ChosenLanguage.description}</p>
+                    </>
+                    :
+                    // mesaggio da visualizzare nel caso in cui nessun bottone sia stato schiacciato
+                    <>
+                        <h2 className="noselectmsg">Nessun linguaggio selezionato: </h2>
+                        <span>scegli un linguaggio cliccando un bottone!</span>
+                    </>
+                }
+
+
             </div>
         </div>
     );
