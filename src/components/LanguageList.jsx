@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+
 const languages = [
     {
         id: 1,
@@ -31,3 +34,35 @@ const languages = [
     }
 ];
 
+export default function LanguageSelector() {
+
+    // destructuring
+    const [ChosenLanguage, setChosenLanguage] = useState(languages[0]);
+
+    return (
+        <div >
+
+            {/* sezione bottoni */}
+            <div >
+                {/* iterazione array con map*/}
+
+                {languages.map((language) => (
+                    <button
+                        // definizione chiave per react
+                        key={language.id}
+                        // creazione evento al click(stampo descrizione nuovo linguaggio aggiornando lo stato) 
+
+                        onClick={() => setChosenLanguage(language)}>
+                        {language.title}
+                    </button>
+                ))}
+            </div>
+
+            {/* card con info */}
+            <div className="card" >
+                <h2 >{ChosenLanguage.title}</h2>
+                <p >{ChosenLanguage.description}</p>
+            </div>
+        </div>
+    );
+}
